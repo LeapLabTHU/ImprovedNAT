@@ -1,0 +1,32 @@
+train:
+  n_steps: 500000
+  batch_size: 2048
+  log_interval: 50
+  save_interval: 5000
+optimizer:
+  name: 'adamw'
+  lr: 0.0004
+  weight_decay: 0.03
+  betas: [0.99, 0.99]
+lr_scheduler:
+  name: 'customized'
+  warmup_steps: 5000
+nnet:
+  img_size: 16
+  codebook_size: 1024
+  embed_dim: 768
+  depth: 24
+  num_heads: 8
+  mlp_ratio: 4
+  qkv_bias: False
+  num_classes: 1001
+  use_checkpoint: False
+  skip: True
+muse:
+  ignore_ind: -1
+  smoothing: 0.1
+dataset:
+  name: 'imagenet256_features'
+  path: 'assets/imagenet256_vq_features'
+  cfg: True
+  p_uncond: 0.15
